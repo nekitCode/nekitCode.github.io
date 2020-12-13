@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/styles.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <div class="wrap">
+
+            <p class="property-values-title">Стоимость недвижимости</p>
+            <input type="text" maxlength="10" class="property-values-input" id="cost-input">
+            <span class="currency">₽</span>
+            <p class="initial-contribution-title">Первоначальный взнос</p>
+            <input type="text" maxlength="10" class="initial-contribution-input" id="contribution-input">
+            <span class="currency">₽</span>
+            <div class="anchors">
+                <button class="anchors__btn">10%</button>
+                <button class="anchors__btn active">15%</button>
+                <button class="anchors__btn">20%</button>
+                <button class="anchors__btn">25%</button>
+                <button class="anchors__btn">30%</button>
+            </div>
+
+            <p class="credit">Срок кредита</p>
+            <input class="credit-input" maxlength="2" type="text">
+            <span class="credit-input-span">лет</span>
+            <p class="rate">Процентная ставка</p>
+            <input class="rate-input" maxlength="2" type="text">
+            <span class="rate-span">%</span>
+
+            <div class="interaction-buttons">
+                <button class="interaction-buttons__save">Save</button>
+                <button class="interaction-buttons__clear">Claer</button>
+            </div>
+
+        </div>
+
+        <div class="wrap-out-put">
+            <div class="calculation-result">
+                <p class="calculation-result__discription">Ежемесячный платеж</p>
+                <div class="calculation-result__out-put" id="monthly-payment"></div>
+
+                <p class="calculation-result__discription">Переплата</p>
+                <div class="calculation-result__out-put" id="overpayment"></div>
+            </div>
+
+            <div class="calculation-result">
+                <p class="calculation-result__discription">Необходимый доход</p>
+                <div class="calculation-result__out-put" id="necessary-income"></div>
+
+                <p class="calculation-result__discription">Тело кредита</p>
+                <div class="calculation-result__out-put" id="credit"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./dist/bundle.js"></script>
+</body>
+
+</html>
