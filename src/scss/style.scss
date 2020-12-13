@@ -1,0 +1,123 @@
+$color: #3f3f3f;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.wrap {
+    width: 25%;
+    padding: 15px 15px 15px 15px;
+
+}
+
+
+input {
+    padding-left: 10px;
+    margin: 15px 0 15px 0;
+    width: 100%;
+    height: 40px;
+    border: 1px solid $color;
+    border-radius: 3px;
+    font-size: 18px;
+    color: $color;
+}
+
+.currency {
+    position: relative;
+    bottom: 45px;
+    left: 290px;
+    color: $color;
+    font-size: 17px;
+}
+
+.anchors {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+
+    &__btn {
+        cursor: pointer;
+        width: 45px;
+        height: 30px;
+        background: #d9d9d9;
+        border: 1px solid #d9d9d9;
+        border-radius: 5px;
+    }
+}
+
+.active {
+    background: #2a94e1;
+}
+
+.credit-input-span {
+    color: $color;
+    position: relative;
+    left: 270px;
+    bottom: 46px;
+}
+
+.rate-span {
+    color: $color;
+    position: relative;
+    left: 280px;
+    bottom: 46px;
+}
+
+.interaction-buttons {
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+
+    &__save {
+        width: 48%;
+        cursor: pointer;
+        font-size: 16px;
+        color: #ffffff;
+        background: #50ae34;
+        border-radius: 3px;
+        border: 1px solid #50ae34;
+    }
+
+    &__clear {
+        width: 48%;
+        cursor: pointer;
+        font-size: 16px;
+        color: $color;
+        background: #f6f7f7;
+        border-radius: 3px;
+        border: 1px solid #969898;
+    }
+}
+
+
+.wrap-out-put {
+    margin: 50px 0 0 25px;
+    border-radius: 10px;
+    width: 45%;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    background: #ebebeb;
+
+    .calculation-result {
+        margin-top: 15px;
+        padding: 0px 15px 0px 15px;;
+
+        &__out-put {
+            height: 50px;
+            margin-top: 20px;
+            font-size: 28px;
+            color: $color;
+        }
+    }
+}
+
