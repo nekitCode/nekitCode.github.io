@@ -22,7 +22,6 @@ window.addEventListener('DOMContentLoaded', () => {
     rateInput.addEventListener('input', calcRateInputValue);
     buttonsClear.addEventListener('click', clearInputValue);
 
-
     function getMaskedValue(val) {
         return val.toString().replace(/[^\d]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
@@ -41,7 +40,7 @@ window.addEventListener('DOMContentLoaded', () => {
     inputValueCorrection();
 
     function calcLoanPrincipal() {
-        fun();
+        valueСorrection();
         let arrWithValueInputCost = [];
         let arrWithValueInputContribution = [];
         let currentCostInpValue = costInput.value;
@@ -128,7 +127,7 @@ window.addEventListener('DOMContentLoaded', () => {
         overpaymentOutPut.innerText = getMaskedValue(sumOverpayment);
  
     }
-    const fun = () => {
+    const valueСorrection = () => {
         let costVal =  deleteSpace(costInput.value);
         let contributionVal = deleteSpace(contributionInput.value);
         let numCost = +costVal;
@@ -153,5 +152,3 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
 });
-
-//TODO: сохраненить данные в localStorage
