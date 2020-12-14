@@ -21,19 +21,43 @@ window.addEventListener('DOMContentLoaded', () => {
     creditTermtInput.addEventListener('input', calcRateInputValue);
     rateInput.addEventListener('input', calcRateInputValue);
     buttonsClear.addEventListener('click', clearInputValue);
+    buttonsSave.addEventListener('click', saveInputValue);
 
+
+    ///////// test
+    let arrayElem = [];
+    costInput.value = localStorage.getItem('costInput');  
+    contributionInput.value = localStorage.getItem('contributionInput');  
+    creditTermtInput.value = localStorage.getItem('creditTermtInput');
+    rateInput.value = localStorage.getItem('rateInput');
+    monthlyPayment.innerText = localStorage.getItem('monthlyPayment');
+    overpaymentOutPut.innerText = localStorage.getItem('overpaymentOutPut');
+    necessaryIncomeOutPut.innerText = localStorage.getItem('necessaryIncomeOutPut');
+    credit.innerText = localStorage.getItem('credit');
+    
+    function saveInputValue() {
+        localStorage.setItem('costInput', costInput.value);
+        localStorage.setItem('contributionInput',contributionInput.value);  
+        localStorage.setItem('creditTermtInput',creditTermtInput.value);  
+        localStorage.setItem('rateInput',rateInput.value);  
+        localStorage.setItem('monthlyPayment', monthlyPayment.innerText);  
+        localStorage.setItem('overpaymentOutPut',overpaymentOutPut.innerText);  
+        localStorage.setItem('necessaryIncomeOutPut',necessaryIncomeOutPut.innerText);  
+        localStorage.setItem('credit',credit.innerText);
+    }
+//////////// test
     function getMaskedValue(val) {
         return val.toString().replace(/[^\d]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
-
+    
     function deleteSpace(val) {
         return val.toString().split(' ').join('');
     }
-
+    
     function inputValueCorrection() {
         inputs.forEach(event => {
             event.addEventListener('input', (e) => {
-                e.target.value = getMaskedValue(e.target.value)
+                e.target.value = getMaskedValue(e.target.value);
             });
         })
     }
@@ -49,7 +73,7 @@ window.addEventListener('DOMContentLoaded', () => {
         arrWithValueInputContribution.push(currentContributionInputValue);
         let varWithStringValueCost = '';
         let varWithStringValueContribution = '';
-
+        
         for (let i = 0; i < arrWithValueInputCost.length; i++) {
             for (let j = 0; j < arrWithValueInputContribution.length; j++) {
                 varWithStringValueContribution = deleteSpace(arrWithValueInputContribution[j]);
@@ -58,12 +82,13 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         let result = varWithStringValueCost - varWithStringValueContribution;
-
+        
         credit.innerText = getMaskedValue(result);
-
+        
         calcPercent(varWithStringValueCost);
         calcOverpayment(currentCostInpValue, currentContributionInputValue);
         calcRateInputValue();
+
     }
 
     function addClassActive() {
@@ -74,13 +99,13 @@ window.addEventListener('DOMContentLoaded', () => {
             })
         });
     }
-
+    
     addClassActive();
 
     function calcPercent(currentCostInpValue) {
         anchorsBtn.forEach((event) => {
             event.addEventListener('click', e => {
-
+                
                 if (!costInput.value) {
                     contributionInput.value = null;
                 } else {
@@ -91,6 +116,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     let resultCalc = currentCostInpValue - total;
                     credit.innerText = getMaskedValue(Math.round(resultCalc));
                     calcRateInputValue();
+
                 }
             });
         })
@@ -102,7 +128,7 @@ window.addEventListener('DOMContentLoaded', () => {
         let creditTerm = creditTermtInput.value;
         calcMonthlyPayment(loanPrincipalValue, rateInputValue, creditTerm);
     }
-
+    
     function calcMonthlyPayment(c, i, n) {
         let calcRate = i / 1200;
         let numberOfMonthly = n * 12;
@@ -119,13 +145,12 @@ window.addEventListener('DOMContentLoaded', () => {
         necessaryIncomeOutPut.innerText = getMaskedValue(overpaymentValue);
         calcOverpayment(p, n);
     }
-
+    
     const calcOverpayment = (p, n) => {
         let costValue = deleteSpace(costInput.value);
         let contributionValue = deleteSpace(contributionInput.value);
         let sumOverpayment = p * n - Number(costValue) + Number(contributionValue);
         overpaymentOutPut.innerText = getMaskedValue(sumOverpayment);
- 
     }
     const valueСorrection = () => {
         let costVal =  deleteSpace(costInput.value);
@@ -149,6 +174,7 @@ window.addEventListener('DOMContentLoaded', () => {
         necessaryIncomeOutPut.innerText = '';
         credit.innerText = '';
         monthlyPayment.innerText = '';
+        localStorage.clear();
     }
 
 });
